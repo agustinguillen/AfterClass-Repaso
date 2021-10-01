@@ -1,6 +1,7 @@
 //------------------APP DE PELICULAS - AFTECLASS DOM--------------------//
 const baseUrl = "https://currency-exchange.p.rapidapi.com/exchange";
 let calculos = [];
+let carritoFake = [];
 let fecha = new Date();
 let fechaFormato = fecha.toLocaleDateString("es-AR");
 let id = Number(localStorage.getItem("proximoID")) || 0;
@@ -51,29 +52,33 @@ function mostrarResultado() {
   localStorage.setItem("calculos", JSON.stringify(calculos));
   $("#resultados")
     .append(
-      `<div id="${id}" class="resultado"><strong>${valor1} ${moneda1} es igual a ${valor2} ${moneda2}</strong> <span>${fechaFormato}</span><button class="eliminar">X</button></div>`
+      `<div id="${id}" class="resultado"><strong>${valor1} ${moneda1} es igual a ${valor2} ${moneda2}</strong> <span>${fechaFormato}</span><button class="agregar">+</button><button class="eliminar">X</button></div>`
     )
     .hide()
     .fadeIn(500);
   $(".eliminar").click((e) => eliminarResultado(e));
+  $(".agregar").click((e) => agregarAlCarrito(e));
   id++;
   localStorage.setItem("proximoID", id);
 }
 
 function cargarResultados() {
   let guardados = JSON.parse(localStorage.getItem("calculos"));
+  let carritoGuardado = JSON.parse(localStorage.getItem("carrito"));
+  carritoFake = carritoGuardado || [];
   console.log(guardados);
   if (guardados !== undefined && guardados !== null) {
     calculos = guardados;
-    for (const guardado of guardados) {
+    for (const calculo of calculos) {
       $("#resultados")
         .append(
-          `<div id="${guardado.id}" class="resultado"><strong>${guardado.valor1} ${guardado.moneda1} es igual a ${guardado.valor2} ${guardado.moneda2}</strong> <span>${fechaFormato}</span><button class="eliminar">X</button></div>`
+          `<div id="${calculo.id}" class="resultado"><strong>${calculo.valor1} ${calculo.moneda1} es igual a ${calculo.valor2} ${calculo.moneda2}</strong> <span>${fechaFormato}</span><button class="agregar">+</button><button class="eliminar">X</button></div>`
         )
         .hide()
         .fadeIn(500);
     }
     $(".eliminar").click((e) => eliminarResultado(e));
+    $(".agregar").click((e) => agregarAlCarrito(e));
   }
 }
 
@@ -88,6 +93,13 @@ function eliminarResultado(e) {
   );
   calculos = nuevoCalculos;
   localStorage.setItem("calculos", JSON.stringify(calculos));
+}
+
+function agregarAlCarrito(e){
+    let elemento = e.target.parentNode;
+    let item = calculos.find(i => i.id == elemento.id);
+    carritoFake.push(item);
+    localStorage.setItem('carrito', JSON.stringify(carritoFake));
 }
 
 $(document).ready(function () {

@@ -41,6 +41,15 @@ h1{
     border: none;
 }
 
+.agregar{
+    background-color: rgb(53, 179, 28);
+    color: whitesmoke;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none; 
+}
+
 .input-yellow{
     background-color: rgb(253, 253, 131);
     font-weight: 700;
@@ -54,4 +63,18 @@ h1{
 
 .btn-light{
     color:rgb(0, 109, 143) !important;
+}
+
+.card{
+    background-color: black !important;
+}
+
+.card-body{
+    background-color: black !important;
+}
+
+.card-img-top{
+    width: 70%;
+    height: 70%;
+    align-self: center !important;
 }
