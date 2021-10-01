@@ -1,0 +1,57 @@
+body{
+    background-color: rgb(12, 5, 44);
+    color: whitesmoke;
+}
+
+h1{
+    color: rgb(0, 109, 143);
+}
+
+.btn-submit{
+    width: 25%;
+}
+
+#titulo-resultados{
+    color: whitesmoke;
+}
+
+.container-resultados{
+    background-color: rgb(0, 70, 92);
+    height: 100%;
+    min-height: 70vh;
+    border-radius: 25px;
+    padding: 0 2%;
+}
+
+.resultado{
+    background-color: rgb(0, 109, 143);
+    padding: 2%;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.eliminar{
+    background-color: rgb(211, 31, 76);
+    color: whitesmoke;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+}
+
+.input-yellow{
+    background-color: rgb(253, 253, 131);
+    font-weight: 700;
+    width: 190px;
+}
+
+.btn-primary{
+    background-color:rgb(0, 109, 143) !important;
+    border: rgb(0, 109, 143) !important;
+}
+
+.btn-light{
+    color:rgb(0, 109, 143) !important;
+}

@@ -6,11 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--CDN de Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>AfterClass de DOM</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <title>AfterClass</title>
 </head>
 <body>
-    <div id="resultado"></div>
+    <div class="container">
+        <div class="mt-2 text-center">
+            <h1>Exchange APP</h1>
+            <h2>AfterClass de Repaso</h2>
+        </div>
+        <div class="row mt-5">
+            <form id="formulario" class="col-lg-6 d-flex flex-column text-center">
+                <h3>Conversor</h3>
+                <div class="d-flex justify-content-between">
+                    <select class="form-control form-select" aria-label="Default select example" id="moneda1">
+                        <option value="" selected>Seleccione una moneda</option>
+                        <option value="ARS">ARS - Peso Argentino</option>
+                        <option value="BRL">BRL - Real Brasileño</option>
+                        <option value="BTC">BTC - Bitcoin</option>
+                        <option value="CHF">CHF - Franco Suizo</option>
+                        <option value="CLP">CLP - Peso Chileno</option>
+                        <option value="COP">COP - Peso Colombiano</option>
+                        <option value="EUR">EUR - Euro</option>
+                        <option value="GBP">GBP - Libra Esterlina Gran Bretaña</option>
+                        <option value="JPY">JPY - Yen Japonés</option>
+                        <option value="MXN">MXN - Peso Mexicano</option>
+                        <option value="USD">USD - Dolar Estadounidense</option>
+                    </select>
+                    <input type="text" id="valor1" class="mx-3">
+                </div>
+                <div class="d-flex justify-content-between mt-3">
+                    <select class="form-control form-select" aria-label="Default select example" id="moneda2">
+                        <option value="" selected>Seleccione una moneda</option>
+                        <option value="ARS">ARS - Peso Argentino</option>
+                        <option value="BRL">BRL - Real Brasileño</option>
+                        <option value="BTC">BTC - Bitcoin</option>
+                        <option value="CHF">CHF - Franco Suizo</option>
+                        <option value="CLP">CLP - Peso Chileno</option>
+                        <option value="COP">COP - Peso Colombiano</option>
+                        <option value="EUR">EUR - Euro</option>
+                        <option value="GBP">GBP - Libra Esterlina Gran Bretaña</option>
+                        <option value="JPY">JPY - Yen Japonés</option>
+                        <option value="MXN">MXN - Peso Mexicano</option>
+                        <option value="USD">USD - Dolar Estadounidense</option>
+                    </select>
+                    <input type="text" id="valor2" class="mx-3">
+                </div>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary btn-submit mx-3">Convertir</button>
+                    <button class="btn btn-light btn-submit mx-3" id="guardar">Guardar</button>
+                </div>
+            </form>
+            <div class="text-center col-lg-6 d-flex flex-column container-resultados">
+                <h3>Resultados</h3>
+                <div id="resultados"></div>
+            </div>
+        </div>
+    </div>
     
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="app.js"></script>
 </body>
 </html>
